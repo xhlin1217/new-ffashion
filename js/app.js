@@ -48,12 +48,11 @@ myApp.controller('fashionMainController', ['$scope', '$http', function($scope, $
 				&& textArr[i].charAt(2) === 't' 
 				&& textArr[i].charAt(3) === 'p' 
 				&& textArr[i].charAt(4) === ':' 
-				&& textArr[i].charAt(5) === '/' 
-				&& textArr[i].charAt(6) === '/' ){
+				&& textArr[i].charAt(5) === '/'){
 
-				let URLkey;
-				if(textArr[i].charAt(textArr[i].length - 1) == "."){
-					URLkey = textArr[i].slice(0, -1);
+				let URLkey = textArr[i];
+				if(URLkey[URLkey.length - 1] == "."){
+					URLkey = URLkey.slice(0, -1);
 				}
 
 				textArr[i] = "\<a target=\"_blank\" href=" + URLkey + " class='webURL'>" + textArr[i] + "</a>";
