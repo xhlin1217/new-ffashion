@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fashion Demo</title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+
+<body ng-app="myApp" ng-controller="fashionMainController">
+
+	<div id="filter">
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+		  <div class="btn-group" role="group">
+		    <button type="button" class="btn btn-default" ng-click="service_name ='Manual' ">Manual</button>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <button type="button" class="btn btn-default" ng-click="service_name ='Twitter' ">Twitter</button>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <button type="button" class="btn btn-default" ng-click="service_name ='Instagram' ">Instagram</button>
+		  </div>
+		</div>
+	</div>
+
+	<div class="container" >
+		
+
+		<div id="menuClass" class="menu row" >
+
+		    <div class="menu-category list-group borderStyle" style="margin-top: 15px" ng-repeat="item in items | filter: service_name | orderBy: item.dateTime  | limitTo:limit">
+
+		        <div class="itemStyle Manual" ng-if="isManual(item)" >
+
+		        	<i id="customIcon"><p>{{item.account_name}}</p></i>
+		        	<!-- <p>{{item.account_name}}</p> -->
+
+					<img src={{item.item_data.image_url}} />
+
+					<p style="margin-top: 20px">{{item.item_data.text}}</p>
+					<a href="{{item.item_data.link}}" target="_blank">{{item.item_data.link_text}}</a>
+					<br>
+					<p class="date">{{item.dateTime | date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+					
+				</div>
+
+				<div class="itemStyle Instagram" ng-if="isInstagram(item)">
+					<i class="fa fa-instagram fa-4x"></i>
+
+					<a href="{{item.item_data.link}}" target="_blank"><img src={{item.item_data.image.medium}}/></a>
+					<p class="instagramUsername">{{item.item_data.user.username}}</p>
+					<p ng-bind-html="item.item_data.caption"></p>
+					<br>
+					<p class="date">{{item.dateTime | date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+					
+				</div>
+
+
+				<div class="itemStyle Twitter" ng-if="isTwitter(item)">
+					<i class="fa fa-twitter-square fa-4x"></i>
+					<p class="twitterUsername">{{item.item_data.user.username}}</p>
+					<p class="twitterTweet" ng-bind-html="item.item_data.tweet"></p>
+					<br>
+					<p class="date">{{item.dateTime | date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+					
+				</div>
+
+		    </div>
+		</div>
+		<br>
+	</div>
+
+	
+
+
+	<button id="more" ng-if="display" ng-click="load()">More</button>
+
+
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+
+	<script type="text/javascript" src="js/app.js"></script>
+
+	<!-- <script>
+		// $.get('http://path/to/page/1', function(data) {
+		//     var imgs = $('<div/>').html(data).find('img');
+		//     imgs.each(function(i, img) {
+		//         alert(img.src); // show a dialog containing the url of image
+		//     });
+		// });
+
+		// var a = $("http:\/\/instagram.com\/p\/szVeWDh17P\/").find('img').first().attr('src'); 
+		// alert(a)
+
+		 var x = sessionStorage.getItem("http:\/\/instagram.com\/p\/szVeWDh17P\/");
+ 		$('.photo').attr('src',x);
+ 		console.log($('img').attr('src',x));
+ 		console.log($('.photo').attr('src',x));
+
+	</script> -->
+
+</body>
+</html>

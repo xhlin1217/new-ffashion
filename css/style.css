@@ -1,0 +1,121 @@
+#filter{
+	width: 60%;
+	margin: auto;
+	padding: 30px 0 20px 0;
+}
+
+.Manual{
+	/*background-color: lightpink;*/
+}
+.Instagram{
+	/*background-color: lightblue;*/
+}
+.Twitter{
+	/*background-color: lightgreen;*/
+}
+
+
+
+.itemStyle{
+	margin: 10% 2% 10% 2%;
+	padding: 5px 2% 5px 2%;	 
+}
+
+.date{
+	float:right;
+	color: gray;
+}
+
+.borderStyle{
+	position: relative;
+	border: 1px solid #ced8e8;
+	border-radius: 5%;
+	margin-top: 10px;
+
+}
+
+.borderStyle > div > i{
+	position: absolute; 
+	top: -15px; 
+	left: 20px;
+}
+
+img{
+	position: relative;
+	width: 100%;
+}
+
+#customIcon{
+	width: 48px; 
+	height: 56px; 
+	background-color: red;
+}
+
+#customIcon>p{
+	text-align: center; 
+	color: white; 
+	font-weight: bold; 
+	margin-top: 17px;
+}
+
+
+a{
+
+}
+
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+.row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap: 1em; 
+  
+}
+
+.menu-category {
+ display: inline-block;
+ margin:  0.25rem;
+ padding:  1rem;
+ width:  100%; 
+}
+
+
+#more{
+	text-align: center;
+	margin: 20px 30%; 
+	width: 40%;
+}
+
+.twitterUsername{
+	font-weight: bold;
+	text-align: center;
+	color: gray;
+}
+
+.twitterTweet{
+	text-align: center;
+}
+
+.instagramUsername{
+	font-weight: bold;
+	color: gray;
+	margin-top: 5px;
+}
+
+
+.atSign, .numberSign, .webURL{
+	color: red;
+}
+
+
+
+
+
+
+#menuClass{
+	/*background-color: blue;*/
+	margin: 0 10%;
+}
